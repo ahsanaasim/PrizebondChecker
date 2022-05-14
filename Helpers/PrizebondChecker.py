@@ -1,5 +1,7 @@
 import requests
 
+from Helpers.MailSender import MailSender
+
 class PrizebondChecker:
     url = "https://www.bb.org.bd/en/index.php/investfacility/prizebond"
     headers = {
@@ -13,6 +15,7 @@ class PrizebondChecker:
         response = requests.request("POST", PrizebondChecker.url, headers=PrizebondChecker.headers, data=payload)
 
         if response.text.find('Congratulations') == -1:
-            print('Sorry')
+            return
         else:
-            print('Congratulations')
+            sender = MailSender()
+            sender.send([sender.receiverEmail], 'Congratulations. You won a prizebond', 'Please check govt. website to see which prizebond won.')
