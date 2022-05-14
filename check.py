@@ -11,8 +11,8 @@ def check():
   PrizebondChecker.check()
 
 scheduler = BackgroundScheduler()
-# scheduler.add_job(check, 'interval', hours=12)
-scheduler.add_job(check, 'interval', seconds=15)
+scheduler.add_job(check, 'interval', hours=12)
+# scheduler.add_job(check, 'interval', seconds=15)
 scheduler.start()
 
 try:
