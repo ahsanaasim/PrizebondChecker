@@ -20,3 +20,5 @@ try:
         time.sleep(2)
 except (KeyboardInterrupt, SystemExit):
     scheduler.shutdown()
+
+print('App started.')
